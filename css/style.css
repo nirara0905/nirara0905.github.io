@@ -1,0 +1,12 @@
+
+body {
+  background: rgb(255, 212, 94);
+}
+
+h1 {
+  color: olive;
+  font-size: 24px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid olive;
+}
+
