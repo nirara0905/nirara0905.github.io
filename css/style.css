@@ -29,9 +29,9 @@ p{
 
 #upband{
   background-color: orangered;
-  height: 20px;
+  height: 50px;
   position: fixed;
-  top: 0;
+  top: -50px;
   left: 0;
   right: 0;
 }
