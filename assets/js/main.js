@@ -65,11 +65,26 @@ async function fetchText(filePath) {
 (async () => {
   try {
     // fetchTextからの戻り値を待つ
-    works_lists = await fetchText('assets/works');
-    works_lists = works_lists.slice(works_lists.indexOf('<ul>')+4,works_lists.indexOf('</ul>')).split('<li>')
-    works_lists.shift();
-    works_lists.shift();
-    works_lists = works_lists.map(value => {
+    works_lists = await fetchText('assets/js/img_file_names.json');
+    
+    works_lists = JSON.parse(works_lists);
+    works_lists.sort((a,b) =>  b.date - a.date );
+    createImgWorks(works_lists);
+
+  } catch (error) {
+    console.error('データ取得中にエラーが発生しました:', error);
+  }
+})();
+
+(async () => {
+  try {
+    // ファイルのjpgからjsonデータへ変換
+    let works_list_json = null;
+    works_list_json = await fetchText('assets/works');
+    works_list_json = works_list_json.slice(works_list_json.indexOf('<ul>')+4,works_list_json.indexOf('</ul>')).split('<li>');
+    works_list_json.shift();
+    works_list_json.shift();
+    works_list_json = works_list_json.map(value => {
       const fileName = decodeURIComponent(value.split('"')[1]);
       const fileSplit = fileName.split('_');
       const obj = { 
@@ -80,9 +95,8 @@ async function fetchText(filePath) {
       }
       return obj;
     });
-
-    works_lists.sort((a,b) =>  b.date - a.date );
-    createImgWorks(works_lists);
+    // ローカル環境でのjsonファイル出力
+    // console.log(JSON.stringify(works_list_json));
 
   } catch (error) {
     console.error('データ取得中にエラーが発生しました:', error);
