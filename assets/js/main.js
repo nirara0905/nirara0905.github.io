@@ -161,3 +161,17 @@ function deletePickup(){
   const pickup_work = document.querySelector('.pickup_work');
   pickup_work.classList.remove('active');
 }
+
+
+// ローディングアイコン
+document.addEventListener("DOMContentLoaded", () => {
+  const loadingWrapper = document.querySelector('.loading_wrapper');
+  
+  // ローディングアイコンを非表示にする例
+  setTimeout(() => {
+    loadingWrapper.classList.add('loaded');
+    setTimeout(() => {
+      loadingWrapper.style.zIndex = 2;
+    }, 1000);
+  }, 1000); // ここでは3秒後にローディングアイコンを隠しています
+});
