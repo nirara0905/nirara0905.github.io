@@ -1,0 +1,44 @@
+/* ------ svgアニメーション ------ */
+
+
+.svg-wrap svg .st0,
+.svg-wrap svg .st1 {
+  stroke-dasharray: 1000px;
+  stroke: #fff;
+  stroke-width: 1px;
+  animation: svgAnime1 3.0s linear forwards;
+}
+.svg-wrap svg .st1 {
+  animation: svgAnime2 3.0s linear forwards;
+}
+
+@keyframes svgAnime1 {
+  0% {
+    stroke-dashoffset: 1000px;
+    fill: transparent;
+  }
+  70% {
+    stroke-dashoffset: 0px;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+    stroke: transparent;
+    fill: rgb(255, 180, 0);
+  }
+}
+@keyframes svgAnime2 {
+  0% {
+    stroke-dashoffset: 1000px;
+    fill: transparent;
+  }
+  70% {
+    stroke-dashoffset: 0px;
+    fill: transparent;
+  }
+  100% {
+    stroke-dashoffset: 0px;
+    stroke: transparent;
+    fill: #787878;
+  }
+}
