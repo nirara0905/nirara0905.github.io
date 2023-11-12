@@ -78,23 +78,23 @@ async function fetchText(filePath) {
 
 (async () => {
   try {
-    // ファイルのjpgからjsonデータへ変換
-    let works_list_json = null;
-    works_list_json = await fetchText('assets/works');
-    works_list_json = works_list_json.slice(works_list_json.indexOf('<ul>')+4,works_list_json.indexOf('</ul>')).split('<li>');
-    works_list_json.shift();
-    works_list_json.shift();
-    works_list_json = works_list_json.map(value => {
-      const fileName = decodeURIComponent(value.split('"')[1]);
-      const fileSplit = fileName.split('_');
-      const obj = { 
-        fileName : fileName ,
-        kinds : fileSplit[1] , 
-        date : Number(fileSplit[2]) , 
-        company : fileSplit[3] ,
-      }
-      return obj;
-    });
+    // ローカル環境でのjpgが入ったファイルをjsonデータへ変換
+    // let works_list_json = null;
+    // works_list_json = await fetchText('assets/works');
+    // works_list_json = works_list_json.slice(works_list_json.indexOf('<ul>')+4,works_list_json.indexOf('</ul>')).split('<li>');
+    // works_list_json.shift();
+    // works_list_json.shift();
+    // works_list_json = works_list_json.map(value => {
+    //   const fileName = decodeURIComponent(value.split('"')[1]);
+    //   const fileSplit = fileName.split('_');
+    //   const obj = { 
+    //     fileName : fileName ,
+    //     kinds : fileSplit[1] , 
+    //     date : Number(fileSplit[2]) , 
+    //     company : fileSplit[3] ,
+    //   }
+    //   return obj;
+    // });
     // ローカル環境でのjsonファイル出力
     // console.log(JSON.stringify(works_list_json));
 
