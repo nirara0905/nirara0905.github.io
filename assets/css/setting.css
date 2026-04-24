@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "BoldFont";
+  src: url("../fonts/GenJyuuGothicL-P-Heavy.woff") format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: "LightFont";
+  src: url("../fonts/GenJyuuGothicL-P-Light.woff") format('woff');
+  font-display: swap;
+}
+@font-face {
+  font-family: "DINFont";
+  src: url("../fonts/DIN-Condensed-Bold.woff") format('woff');
+  font-display: swap;
+}
+
+body {
+  font-family: "LightFont", "ヒラギノ丸ゴ Pro W4", "Hiragino Maru Gothic Pro",
+               "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+               "HG丸ｺﾞｼｯｸM-PRO", sans-serif;
+  font-feature-settings: "palt";
+}
+
+/* ===== Light mode (default) ===== */
+:root {
+  --bg:            #FAFAF8;
+  --bg-2:          #F2EFE9;
+  --text:          #1C1C1C;
+  --text-muted:    #888888;
+  --accent:        #F5B301;
+  --accent-2:      #FA6400;
+  --card-bg:       #FFFFFF;
+  --border:        #E4E1DA;
+  --header-bg:     rgba(250, 250, 248, 0.94);
+  --shadow:        rgba(0, 0, 0, 0.07);
+  --blob-1:        rgba(245, 179, 1, 0.15);
+  --blob-2:        rgba(250, 100, 0, 0.09);
+
+  /* compat with old CSS */
+  --color-yellow:   #F5B301;
+  --color-orange:   #FA6400;
+  --color-gray-1:   #888888;
+  --color-white:    #FAFAF8;
+  --color-black:    #1C1C1C;
+  --color-shadow:   rgba(0, 0, 0, 0.1);
+  --color-shadow-Y: rgba(245, 179, 1, 0.5);
+
+  --font-size-3XL:  10rem;
+  --font-size-2XL:  4.6rem;
+  --font-size-XL:   3.0rem;
+  --font-size-L:    2.0rem;
+  --font-size-M:    1.4rem;
+  --font-size-S:    1.2rem;
+  --font-size-SS:   1.0rem;
+  --font-size-XS:   0.8rem;
+  --border-radius-S: 8px;
+  --border-radius-M: 12px;
+  --border-radius-L: 30px;
+}
+
+/* ===== Dark mode ===== */
+[data-theme="dark"] {
+  --bg:            #1A1A1A;
+  --bg-2:          #242424;
+  --text:          #F0EEE8;
+  --text-muted:    #888888;
+  --accent:        #F5B301;
+  --accent-2:      #FA6400;
+  --card-bg:       #2A2A2A;
+  --border:        #363636;
+  --header-bg:     rgba(26, 26, 26, 0.94);
+  --shadow:        rgba(0, 0, 0, 0.4);
+  --blob-1:        rgba(245, 179, 1, 0.10);
+  --blob-2:        rgba(250, 100, 0, 0.07);
+
+  --color-white:    #F0EEE8;
+  --color-black:    #F0EEE8;
+  --color-shadow:   rgba(0, 0, 0, 0.4);
+  --color-shadow-Y: rgba(245, 179, 1, 0.3);
+}

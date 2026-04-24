@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WORKS — designwork</title>
+  <meta name="description" content="designworkの制作実績一覧。ロゴ・名刺・チラシ・看板・WEB・アプリなど、さまざまな制作物をご覧いただけます。">
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/setting.css">
+  <link rel="stylesheet" href="./assets/css/common.css">
+  <link rel="stylesheet" href="./assets/css/__works.css">
+  <link rel="stylesheet" href="./assets/css/animetion.css">
+</head>
+<body>
+
+  <header id="header">
+    <div class="header_inner">
+      <a href="index.html" class="header_logo">
+        <img src="assets/img/designwork.svg" alt="designwork">
+      </a>
+      <nav class="header_nav">
+        <a href="index.html#about">ABOUT</a>
+        <a href="works.html">WORKS</a>
+        <a href="index.html#services">SERVICES</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+      <div class="header_right">
+        <button class="theme_toggle" id="themeToggle" aria-label="テーマ切り替え">
+          <svg class="icon_sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon_moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a href="index.html#contact" class="header_cta">お問い合わせ</a>
+        <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav_drawer" id="navDrawer">
+      <a href="index.html#about"    class="drawer_link">ABOUT</a>
+      <a href="works.html"          class="drawer_link">WORKS</a>
+      <a href="index.html#services" class="drawer_link">SERVICES</a>
+      <a href="index.html#contact"  class="drawer_link">CONTACT</a>
+    </nav>
+  </header>
+
+  <section id="page_title">
+    <h2 class="">WORKS</h2>
+    <h3 class="">制作実績</h3>
+    <svg class="page_title_line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 222.71 9.04">
+      <rect class="cls-5" x="213.67" y="0" width="9.04" height="9.04" rx="4.52" ry="4.52"/>
+      <rect class="cls-4" x="196.26" y="0" width="9.04" height="9.04" rx="4.52" ry="4.52"/>
+      <rect class="cls-1" x="178.85" y="0" width="9.04" height="9.04" rx="4.52" ry="4.52"/>
+      <rect class="cls-2" x="161.44" y="0" width="9.04" height="9.04" rx="4.52" ry="4.52"/>
+      <rect class="cls-3" x="0" y="1.68" width="149.7" height="5.67" rx="2.84" ry="2.84"/>
+    </svg>
+    <p class="page_title_text">これまで手がけた制作物です。業種やビジネスの内容に応じてご要望をお聞きし、丁寧に制作いたします。</p>
+  </section>
+
+  <section id="works">
+
+    <!-- filter nav (top) -->
+    <div class="works_filter_wrap">
+      <ul class="nav_btn_box"></ul>
+    </div>
+
+    <!-- modal overlay -->
+    <div class="pickup_work">
+      <div class="pickup_mask"></div>
+      <button class="pickup_delete_btn" aria-label="閉じる">✕</button>
+      <div class="pickup_content">
+        <p class="pickup_kinds pickup_text"></p>
+        <div class="pickup_img_box">
+          <img class="pickup_img" src="" alt="">
+        </div>
+        <p class="pickup_company_name pickup_text"></p>
+        <p class="pickup_date pickup_text"></p>
+      </div>
+    </div>
+
+    <ul id="works_list_box" class="works_list_grid"></ul>
+
+  </section>
+
+  <footer id="footer">
+    <div class="footer_inner">
+      <a href="index.html" class="footer_logo">
+        <img src="assets/img/designwork.svg" alt="designwork">
+      </a>
+      <nav class="footer_nav">
+        <a href="index.html#about">ABOUT</a>
+        <a href="works.html">WORKS</a>
+        <a href="index.html#services">SERVICES</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+    </div>
+    <small class="copyright">© 2024 designwork.biz</small>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/works.js"></script>
+  <script src="assets/js/animation.js"></script>
+</body>
+</html>

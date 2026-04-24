@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>designwork — やさしいデザインで、あなたのビジネスを前へ。</title>
+  <meta name="description" content="沖縄のフリーランスデザイナー designwork。ロゴ・名刺・チラシ・看板・WEB・アプリ開発・IT相談まで、まるごとお任せください。">
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/setting.css">
+  <link rel="stylesheet" href="./assets/css/common.css">
+  <link rel="stylesheet" href="./assets/css/__index.css">
+  <link rel="stylesheet" href="./assets/css/animetion.css">
+</head>
+<body>
+
+  <header id="header">
+    <div class="header_inner">
+      <a href="index.html" class="header_logo">
+        <img src="assets/img/designwork.svg" alt="designwork">
+      </a>
+      <nav class="header_nav">
+        <a href="#about">ABOUT</a>
+        <a href="#works">WORKS</a>
+        <a href="#services">SERVICES</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <div class="header_right">
+        <button class="theme_toggle" id="themeToggle" aria-label="テーマ切り替え">
+          <!-- sun (shown in dark mode) -->
+          <svg class="icon_sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- moon (shown in light mode) -->
+          <svg class="icon_moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a href="#contact" class="header_cta">お問い合わせ</a>
+        <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav_drawer" id="navDrawer">
+      <a href="#about"    class="drawer_link">ABOUT</a>
+      <a href="#works"    class="drawer_link">WORKS</a>
+      <a href="#services" class="drawer_link">SERVICES</a>
+      <a href="#contact"  class="drawer_link">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section id="hero">
+      <div class="hero_container">
+        <div class="hero_text">
+          <p class="hero_label">デザインで、ビジネスをもっと前へ。</p>
+          <h1 class="hero_title">
+            YOUR IDEA,<br>
+            <em>OUR</em> DESIGN.
+          </h1>
+          <!-- hand-drawn wavy underline -->
+          <svg class="hero_wave" viewBox="0 0 300 14" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4,7 C30,1 56,13 82,7 C108,1 134,13 160,7 C186,1 212,13 238,7 C256,3 272,9 296,7"
+                  stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <p class="hero_sub">あなたの"伝えたい"を、<br>やさしいデザインで形にします。</p>
+          <div class="hero_btns">
+            <a href="works.html" class="btn btn_primary">制作実績を見る →</a>
+            <a href="#services"  class="btn btn_ghost">サービスを見る</a>
+          </div>
+        </div>
+
+        <div class="hero_visual">
+          <div class="hero_blob_img">
+            <img src="assets/img/hero.png" alt="制作実績サンプル">
+          </div>
+          <div class="hero_deco_blob hero_deco_1"></div>
+          <div class="hero_deco_blob hero_deco_2"></div>
+        </div>
+      </div>
+
+      <!-- background decorations -->
+      <div class="hero_bg_blob hero_bg_blob_1"></div>
+      <div class="hero_bg_blob hero_bg_blob_2"></div>
+
+      <!-- hand-drawn squiggle lines -->
+      <svg class="deco_squiggle deco_squiggle_1" viewBox="0 0 90 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5,15 C18,4 32,26 46,15 C60,4 74,26 85,15"
+              stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <svg class="deco_squiggle deco_squiggle_2" viewBox="0 0 70 22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4,11 C15,3 26,19 37,11 C48,3 59,19 66,11"
+              stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about">
+      <div class="section_container">
+        <div class="section_head">
+          <h2 class="section_title title_action">ABOUT</h2>
+          <p class="section_subtitle">デザインワークについて</p>
+        </div>
+        <div class="about_content">
+          <div class="about_text">
+            <p class="about_lead">想いを、かたちに。<br>あなたらしさを、デザインで届けます。</p>
+            <p class="about_body">
+              沖縄を拠点に活動するフリーランスデザイナーです。<br>
+              ロゴ・チラシ・看板・WEBサイトなど、ビジネスに必要なデザインをまるごとお任せください。<br>
+              "難しそう"と感じていることも、気軽にご相談いただける存在でありたいと思っています。
+            </p>
+            <p class="about_body">
+              デザインは、見た目をきれいにするだけのものではありません。<br>
+              あなたのビジネスの想いや魅力を、相手にしっかり届けるための大切なコミュニケーションです。<br>
+              一緒に、あなたらしいデザインを作りましょう。
+            </p>
+          </div>
+          <div class="about_visual">
+            <div class="about_blob_img">
+              <img src="assets/works/img_logo_2003_photoria.jpg" alt="">
+            </div>
+            <svg class="deco_circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="46"
+                      stroke="currentColor" stroke-width="2.5" fill="none"
+                      stroke-dasharray="7 5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WORKS ========== -->
+    <section id="works">
+      <div class="section_container">
+        <div class="section_head">
+          <h2 class="section_title title_action">WORKS</h2>
+          <p class="section_subtitle">制作実績</p>
+          <p class="section_desc">さまざまな業種・業界のプロジェクトをサポートしてきました。</p>
+        </div>
+        <ul id="top_works_list" class="works_grid"></ul>
+        <div class="section_more">
+          <a href="works.html" class="btn btn_outline">すべての実績を見る →</a>
+        </div>
+      </div>
+      <svg class="deco_squiggle deco_squiggle_works" viewBox="0 0 120 22" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4,11 C20,3 36,19 52,11 C68,3 84,19 100,11 C108,7 113,10 116,11"
+              stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section id="services">
+      <div class="section_container">
+        <div class="section_head">
+          <h2 class="section_title title_action">SERVICES</h2>
+          <p class="section_subtitle">サービス紹介</p>
+          <p class="section_desc">目的や課題に合わせて、最適なデザインソリューションを提供します。</p>
+        </div>
+        <ul class="services_grid">
+
+          <li class="service_card reveal">
+            <div class="service_icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
+            </div>
+            <h3 class="service_name">ロゴ制作</h3>
+            <p class="service_desc">ビジネスの顔となるロゴを、想いを込めてデザインします</p>
+          </li>
+
+          <li class="service_card reveal">
+            <div class="service_icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                <path d="M7 14h4M7 10h8"/>
+              </svg>
+            </div>
+            <h3 class="service_name">名刺・カード制作</h3>
+            <p class="service_desc">手渡しの第一印象を、洗練されたデザインで演出します</p>
+          </li>
+
+          <li class="service_card reveal">
+            <div class="service_icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+                <path d="M8 9h8M8 13h6"/>
+              </svg>
+            </div>
+            <h3 class="service_name">パンフレット制作</h3>
+            <p class="service_desc">ブランドの魅力をまとめた冊子・リーフレットを制作します</p>
+          </li>
+
+          <li class="service_card reveal">
+            <div class="service_icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <path d="M8 13h8M8 17h5"/>
+              </svg>
+            </div>
+            <h3 class="service_name">チラシ・ポスター制作</h3>
+            <p class="service_desc">伝わる情報設計と目を引くビジュアルで販促をサポート</p>
+          </li>
+
+          <li class="service_card reveal">
+            <div class="service_icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="16" height="10" rx="2"/>
+                <path d="M11 15v5M7 20h8"/>
+              </svg>
+            </div>
+            <h3 class="service_name">看板制作</h3>
+            <p class="service_desc">店舗の雰囲気に合った視認性の高いサインをご提案します</p>
+          </li>
+
+          <li class="service_card reveal">
+            <div class="service_icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4M2 8h20"/>
+              </svg>
+            </div>
+            <h3 class="service_name">WEB制作</h3>
+            <p class="service_desc">スマホ対応のシンプルで使いやすいサイトを制作します</p>
+          </li>
+
+          <li class="service_card reveal">
+            <div class="service_icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+            </div>
+            <h3 class="service_name">アプリ開発</h3>
+            <p class="service_desc">スマートフォンアプリの企画・デザイン・開発をお手伝いします</p>
+          </li>
+
+          <li class="service_card reveal">
+            <div class="service_icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                <path d="M12 8v4M12 14h.01"/>
+              </svg>
+            </div>
+            <h3 class="service_name">IT相談</h3>
+            <p class="service_desc">ITツール導入やデジタル化のお悩み、気軽にご相談ください</p>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact">
+      <div class="contact_container">
+        <div class="contact_deco_blob"></div>
+        <div class="contact_content">
+          <span class="contact_label">まずはお気軽にご相談ください</span>
+          <h2 class="contact_title">どんな小さなことでも<br>お気軽にどうぞ。</h2>
+          <p class="contact_sub">お見積もりは無料です。<br>お気軽にご連絡ください。</p>
+          <a href="mailto:designwork.free@gmail.com" class="btn btn_primary btn_large">
+            お問い合わせ →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer">
+    <div class="footer_inner">
+      <a href="index.html" class="footer_logo">
+        <img src="assets/img/designwork.svg" alt="designwork">
+      </a>
+      <nav class="footer_nav">
+        <a href="#about">ABOUT</a>
+        <a href="#works">WORKS</a>
+        <a href="#services">SERVICES</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+    <small class="copyright">© 2026 designwork.biz</small>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animation.js"></script>
+</body>
+</html>
