@@ -5,11 +5,18 @@
 /* ===== HERO ===== */
 #hero {
   position: relative;
-  overflow-x: clip;
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding-top: 72px;
+}
+
+.hero_bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero_container {
@@ -82,12 +89,11 @@
 .hero_visual {
   flex: 0 0 420px;
   position: relative;
-  height: 600px;
 }
 
 .hero_blob_img {
   width: 380px;
-  height: 680px;
+  height: 600px;
   position: relative;
   z-index: -1;
 }
