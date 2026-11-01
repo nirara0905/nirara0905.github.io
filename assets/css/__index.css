@@ -551,8 +551,10 @@
   text-align: left;
 }
 
-.contact_submit {
+.contact_form .contact_submit {
+  display: flex;
   width: 100%;
+  max-width: none;
   white-space: normal;
 }
 
