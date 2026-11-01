@@ -75,14 +75,6 @@
   color: var(--accent);
 }
 
-.hero_wave {
-  width: min(280px, 75%);
-  height: auto;
-  display: block;
-  margin-bottom: 28px;
-  color: var(--accent);
-}
-
 .hero_sub {
   font-size: 1.4rem;
   color: var(--text);
