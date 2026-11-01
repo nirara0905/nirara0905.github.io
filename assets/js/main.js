@@ -61,7 +61,7 @@ const topWorksList = document.getElementById('top_works_list');
 if (topWorksList) {
   (async () => {
     try {
-      const res   = await fetch('assets/js/img_file_names.json');
+      const res   = await fetch('assets/js/img_file_names.json', { cache: 'no-cache' });
       const works = await res.json();
       works.sort((a, b) => b.date - a.date);
       works.slice(0, 12).forEach(work => {

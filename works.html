@@ -2,16 +2,21 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WORKS — designwork</title>
   <meta name="description" content="designworkの制作実績一覧。ロゴ・名刺・チラシ・看板・WEB・アプリなど、さまざまな制作物をご覧いただけます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://designwork.biz/works.html">
+  <meta property="og:title" content="WORKS — designwork">
+  <meta property="og:description" content="ロゴ・名刺・チラシ・看板・Webサイトなど、designworkの制作実績をご覧いただけます。">
+  <meta property="og:image" content="https://designwork.biz/assets/img/hero.png">
   <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
   <link rel="apple-touch-icon" href="./assets/img/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/setting.css">
   <link rel="stylesheet" href="./assets/css/common.css">
   <link rel="stylesheet" href="./assets/css/__works.css">
-  <link rel="stylesheet" href="./assets/css/animetion.css">
+  <link rel="stylesheet" href="./assets/css/animation.css">
 </head>
 <body>
 
@@ -78,15 +83,18 @@
     </div>
 
     <!-- modal overlay -->
-    <div class="pickup_work">
+    <div class="pickup_work" aria-hidden="true">
       <div class="pickup_mask"></div>
       <button class="pickup_delete_btn" aria-label="閉じる">✕</button>
-      <div class="pickup_content">
+      <div class="pickup_content" aria-labelledby="pickupTitle">
         <p class="pickup_kinds pickup_text"></p>
         <div class="pickup_img_box">
+          <button class="pickup_nav pickup_prev" type="button" aria-label="前の制作実績">‹</button>
           <img class="pickup_img" src="" alt="">
+          <button class="pickup_nav pickup_next" type="button" aria-label="次の制作実績">›</button>
         </div>
-        <p class="pickup_company_name pickup_text"></p>
+        <p class="pickup_counter pickup_text" aria-live="polite"></p>
+        <p id="pickupTitle" class="pickup_company_name pickup_text"></p>
         <p class="pickup_date pickup_text"></p>
       </div>
     </div>

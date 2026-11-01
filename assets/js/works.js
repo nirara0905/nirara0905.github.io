@@ -12,6 +12,9 @@ const kindsObject = {
 };
 
 let works_lists = null;
+let visibleWorks = [];
+let activeWorkIndex = -1;
+let activeTrigger = null;
 
 /* build filter buttons */
 const nav_btns = createNavBtn(kindsObject);
@@ -41,7 +44,7 @@ function navBtnClick(btn) {
 /* fetch works data */
 (async () => {
   try {
-    const res  = await fetch('assets/js/img_file_names.json');
+    const res  = await fetch('assets/js/img_file_names.json', { cache: 'no-cache' });
     works_lists = await res.json();
     works_lists.sort((a, b) => b.date - a.date);
     createImgWorks(works_lists);
@@ -53,11 +56,16 @@ function navBtnClick(btn) {
 /* render grid */
 function createImgWorks(arr) {
   const box = document.querySelector('#works_list_box');
+  visibleWorks = arr;
   box.innerHTML = '';
-  arr.forEach(work => {
+  arr.forEach((work, index) => {
     const li = document.createElement('li');
     li.classList.add('works_list');
     li.dataset.kinds = work.kinds;
+    li.tabIndex = 0;
+    li.setAttribute('role', 'button');
+    li.setAttribute('aria-label', `${work.company}様 ${kindsObject[work.kinds]}の制作実績を拡大`);
+    li.dataset.index = String(index);
 
     const name = document.createElement('p');
     name.classList.add('works_company_name');
@@ -90,20 +98,70 @@ document.querySelector('#works_list_box').addEventListener('click', e => {
 });
 
 function openPickup(li) {
-  const content = document.querySelector('.pickup_content');
-  content.querySelector('.pickup_kinds').textContent        = kindsObject[li.dataset.kinds] || '';
-  content.querySelector('.pickup_company_name').textContent = li.querySelector('.works_company_name').textContent;
-  content.querySelector('.pickup_date').textContent         = li.querySelector('.works_date').textContent;
-  content.querySelector('.pickup_img').src                  = li.querySelector('.works_list_img').src;
-  document.querySelector('.pickup_work').classList.add('active');
+  activeWorkIndex = Number(li.dataset.index);
+  activeTrigger = li;
+  showPickup(activeWorkIndex);
+  const modal = document.querySelector('.pickup_work');
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('role', 'dialog');
   document.body.style.overflow = 'hidden';
+  document.querySelector('.pickup_delete_btn').focus();
+}
+
+function showPickup(index) {
+  activeWorkIndex = (index + visibleWorks.length) % visibleWorks.length;
+  const work = visibleWorks[activeWorkIndex];
+  const content = document.querySelector('.pickup_content');
+  const image = content.querySelector('.pickup_img');
+  content.querySelector('.pickup_kinds').textContent = kindsObject[work.kinds] || '';
+  content.querySelector('.pickup_company_name').textContent = `${work.company}様`;
+  content.querySelector('.pickup_date').textContent = `20${String(work.date).slice(0, 2)}/${String(work.date).slice(2)}`;
+  content.querySelector('.pickup_counter').textContent = `${activeWorkIndex + 1} / ${visibleWorks.length}`;
+  image.src = `assets/works/${work.fileName}`;
+  image.alt = `${work.company}様 ${kindsObject[work.kinds]}の制作実績`;
 }
 
 function closePickup() {
-  document.querySelector('.pickup_work').classList.remove('active');
+  const modal = document.querySelector('.pickup_work');
+  modal.classList.remove('active');
+  modal.removeAttribute('aria-modal');
+  modal.removeAttribute('role');
+  modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  if (activeTrigger) activeTrigger.focus();
+  activeTrigger = null;
 }
 
 document.querySelector('.pickup_delete_btn').addEventListener('click', closePickup);
 document.querySelector('.pickup_mask').addEventListener('click', closePickup);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closePickup(); });
+document.querySelector('.pickup_prev').addEventListener('click', () => showPickup(activeWorkIndex - 1));
+document.querySelector('.pickup_next').addEventListener('click', () => showPickup(activeWorkIndex + 1));
+
+document.querySelector('#works_list_box').addEventListener('keydown', e => {
+  const li = e.target.closest('.works_list');
+  if (li && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    openPickup(li);
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (!document.querySelector('.pickup_work').classList.contains('active')) return;
+  if (e.key === 'Escape') closePickup();
+  if (e.key === 'ArrowLeft') showPickup(activeWorkIndex - 1);
+  if (e.key === 'ArrowRight') showPickup(activeWorkIndex + 1);
+});
+
+let pointerStartX = null;
+const pickupImageBox = document.querySelector('.pickup_img_box');
+pickupImageBox.addEventListener('pointerdown', e => { pointerStartX = e.clientX; });
+pickupImageBox.addEventListener('pointerup', e => {
+  if (pointerStartX === null) return;
+  const deltaX = e.clientX - pointerStartX;
+  pointerStartX = null;
+  if (Math.abs(deltaX) < 45) return;
+  showPickup(activeWorkIndex + (deltaX < 0 ? 1 : -1));
+});
+pickupImageBox.addEventListener('pointercancel', () => { pointerStartX = null; });

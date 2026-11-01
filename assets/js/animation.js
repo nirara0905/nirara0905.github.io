@@ -16,7 +16,7 @@ function animateTitles() {
       letters.forEach((char, i) => {
         const span = document.createElement('span');
         span.textContent = char;
-        if (i === 0) span.classList.add('farstText');
+        if (i === 0) span.classList.add('firstText');
         el.appendChild(span);
         setTimeout(() => span.classList.add('fadeIn'), 80 * i);
       });

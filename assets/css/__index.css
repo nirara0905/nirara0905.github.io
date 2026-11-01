@@ -19,6 +19,14 @@
   z-index: 0;
 }
 
+.hero_bg_blob,
+.hero_deco_blob,
+.deco_squiggle_1,
+.deco_squiggle_2,
+.deco_squiggle_works {
+  display: none;
+}
+
 .hero_container {
   max-width: 1100px;
   margin: 0 auto;
@@ -39,7 +47,7 @@
 .hero_label {
   display: inline-block;
   font-size: 1.2rem;
-  color: var(--text-muted);
+  color: var(--text);
   padding: 6px 18px;
   background: var(--bg-2);
   border: 1px solid var(--border);
@@ -57,12 +65,12 @@
   margin-bottom: 20px;
   transition: color 0.3s;
 }
+
 .hero_title em {
   font-style: normal;
   color: var(--accent);
 }
 
-/* hand-drawn wave underline */
 .hero_wave {
   width: min(280px, 75%);
   height: auto;
@@ -73,7 +81,7 @@
 
 .hero_sub {
   font-size: 1.4rem;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.9;
   max-width: 400px;
   margin-bottom: 44px;
@@ -85,27 +93,26 @@
   flex-wrap: wrap;
 }
 
-/* hero right visual */
 .hero_visual {
   flex: 0 0 420px;
   position: relative;
 }
 
 .hero_blob_img {
-  width: 380px;
-  height: 600px;
+  width: min(100%, 380px);
+  aspect-ratio: 0.8;
+  height: auto;
   position: relative;
   z-index: -1;
 }
 .hero_blob_img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   overflow: visible;
 }
 
-/* small floating deco blobs */
 .hero_deco_blob {
   position: absolute;
   z-index: 1;
@@ -129,7 +136,6 @@
   opacity: 0.65;
 }
 
-/* large background blobs */
 .hero_bg_blob {
   position: absolute;
   pointer-events: none;
@@ -152,7 +158,6 @@
   border-radius: 43% 57% 38% 62% / 61% 44% 56% 39%;
 }
 
-/* hand-drawn squiggle deco */
 .deco_squiggle {
   position: absolute;
   pointer-events: none;
@@ -184,7 +189,7 @@
 .about_content {
   display: flex;
   align-items: center;
-  gap: 80px;
+  gap: clamp(32px, 6vw, 80px);
 }
 
 .about_text { flex: 1; }
@@ -205,39 +210,55 @@
 }
 
 .about_visual {
-  flex: 0 0 320px;
+  flex: 0 1 420px;
   position: relative;
-  height: 360px;
+  min-width: 0;
+  min-height: 360px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  gap: 14px;
 }
 
-.about_blob_img {
-  width: 280px;
-  height: 300px;
+.about_visual_main {
+  flex: 1.35;
+  min-width: 0;
+  min-height: 360px;
   overflow: hidden;
-  border-radius: 52% 48% 40% 60% / 44% 57% 43% 56%;
-  box-shadow: 0 20px 56px var(--shadow);
+  border-radius: 8px;
+  background: var(--card-bg);
   position: relative;
-  z-index: 2;
 }
-.about_blob_img img {
+.about_visual_main img,
+.about_visual_side img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* hand-drawn dashed circle deco */
-.deco_circle {
+.about_visual_main span {
   position: absolute;
-  width: 200px;
-  height: 200px;
-  bottom: -10px;
-  right: -10px;
-  color: var(--accent);
-  opacity: 0.45;
-  z-index: 1;
+  left: 16px;
+  bottom: 16px;
+  padding: 7px 11px;
+  border-radius: 3px;
+  background: var(--card-bg);
+  color: var(--text);
+  font: 1.1rem 'DINFont', sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.about_visual_side {
+  flex: 0.8;
+  min-width: 0;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+
+.about_visual_side img {
+  min-height: 0;
+  border-radius: 8px;
+  background: var(--card-bg);
 }
 
 /* ===== WORKS preview ===== */
@@ -397,16 +418,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--blob-1);
-  border-radius: 68% 32% 43% 57% / 57% 44% 56% 43%;
+  border-radius: 8px;
   pointer-events: none;
   z-index: 0;
-  animation: blobFloat 10s ease-in-out infinite;
-}
-
-@keyframes blobFloat {
-  0%, 100% { border-radius: 68% 32% 43% 57% / 57% 44% 56% 43%; }
-  33%       { border-radius: 42% 58% 60% 40% / 48% 62% 38% 52%; }
-  66%       { border-radius: 55% 45% 38% 62% / 60% 40% 60% 40%; }
+  opacity: 0.65;
 }
 
 .contact_content {
@@ -415,12 +430,13 @@
   text-align: center;
 }
 
-.contact_label {
-  font-size: 1.3rem;
-  color: var(--accent);
-  margin-bottom: 20px;
-  display: block;
-  font-weight: bold;
+.contact_content .section_head {
+  margin-bottom: 32px;
+}
+
+.contact_content {
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .contact_title {
@@ -434,54 +450,138 @@
 .contact_sub {
   font-size: 1.3rem;
   color: var(--text-muted);
-  margin-bottom: 44px;
+  margin-bottom: 32px;
+  line-height: 1.9;
 }
+
+.contact_form {
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  box-shadow: 0 16px 48px var(--shadow);
+  text-align: left;
+}
+
+.contact_form_grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 16px;
+}
+
+.contact_field {
+  display: grid;
+  gap: 8px;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.contact_field_full {
+  grid-column: 1 / -1;
+}
+
+.contact_required {
+  margin-left: 6px;
+  color: #a64e3c;
+  font-size: 1rem;
+}
+
+.contact_field input,
+.contact_field select,
+.contact_field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-weight: normal;
+}
+
+.contact_field textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.7;
+}
+
+.contact_field input::placeholder,
+.contact_field textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.contact_field input:focus-visible,
+.contact_field select:focus-visible,
+.contact_field textarea:focus-visible,
+.contact_submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.contact_demo_note {
+  margin: 18px 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: left;
+}
+
+.contact_submit {
+  width: 100%;
+  white-space: normal;
+}
+
+
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 960px) {
+  .hero_container {
+    gap: 32px;
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+  .hero_visual { flex-basis: min(38vw, 340px); }
+  .hero_blob_img { max-width: 100%; }
   .services_grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hero_container {
     flex-direction: column;
-    padding: 40px 20px 60px;
-    gap: 44px;
+    padding: 104px 24px 64px;
+    gap: 30px;
     text-align: center;
   }
   .hero_text { order: 1; }
   .hero_visual {
     order: 0;
     flex: none;
-    width: 100%;
-    height: 280px;
+    width: min(100%, 380px);
+    height: auto;
     display: flex;
     justify-content: center;
   }
   .hero_blob_img {
-    width: 260px;
-    height: 280px;
+    width: min(100%, 300px);
     margin: 0 auto;
   }
   .hero_btns { justify-content: center; }
-  .hero_deco_1, .hero_deco_2 { display: none; }
-  .hero_bg_blob_1 { width: 380px; height: 380px; }
-  .hero_bg_blob_2 { display: none; }
-
   .about_content {
     flex-direction: column;
     gap: 40px;
-    text-align: center;
+    align-items: stretch;
   }
   .about_visual {
     flex: none;
-    width: 100%;
-    height: 260px;
+    width: min(100%, 480px);
+    min-height: 320px;
+    margin: 0 auto;
   }
-  .about_blob_img { width: 220px; height: 240px; }
-  .deco_circle { right: 20px; bottom: 0; }
 
   .works_grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -492,11 +592,21 @@
   .service_card { padding: 22px 14px 18px; }
 
   .contact_container { padding: 80px 20px; }
-  .contact_deco_blob { width: 320px; height: 320px; }
+  .contact_deco_blob { width: calc(100% - 32px); height: 320px; }
 }
 
 @media (max-width: 480px) {
+  .hero_container { padding: 96px 20px 52px; }
+  .hero_visual { width: 100%; }
+  .hero_blob_img { width: min(78vw, 280px); }
+  .hero_title { font-size: clamp(4rem, 14vw, 6rem); }
   .hero_btns { flex-direction: column; align-items: center; }
   .btn { width: 100%; max-width: 280px; }
   .works_grid { gap: 8px; }
+  .about_visual { min-height: 240px; gap: 8px; }
+  .about_visual_main { min-height: 240px; }
+  .about_visual_side { gap: 8px; }
+  .about_lead { font-size: 1.9rem; }
+  .contact_form_grid { grid-template-columns: 1fr; gap: 16px; }
+  .contact_field_full { grid-column: auto; }
 }
