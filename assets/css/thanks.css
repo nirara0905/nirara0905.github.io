@@ -1,0 +1,74 @@
+.thanks_header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 22px clamp(20px, 5vw, 64px);
+}
+
+.thanks_header .header_logo img {
+  width: 150px;
+  height: auto;
+}
+
+.thanks_main {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 100px 20px 72px;
+}
+
+.thanks_card {
+  width: min(100%, 680px);
+  min-width: 0;
+  padding: clamp(32px, 7vw, 72px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card-bg);
+  box-shadow: 0 16px 48px var(--shadow);
+  text-align: center;
+}
+
+.thanks_label {
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-family: "DINFont", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+}
+
+.thanks_card h1 {
+  color: var(--text);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.55;
+}
+
+.thanks_message {
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 1.35rem;
+  line-height: 2;
+}
+
+.thanks_button {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 32px;
+  text-decoration: none;
+}
+
+.thanks_footer {
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+}
+
+@media (max-width: 480px) {
+  .thanks_header {
+    padding-top: 18px;
+  }
+
+  .thanks_header .header_logo img {
+    width: 128px;
+  }
+}
