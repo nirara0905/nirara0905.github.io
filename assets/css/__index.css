@@ -616,9 +616,27 @@
   .hero_btns { flex-direction: column; align-items: center; }
   .btn { width: 100%; max-width: 280px; }
   .works_grid { gap: 8px; }
-  .about_visual { min-height: 240px; gap: 8px; }
-  .about_visual_main { min-height: 240px; }
-  .about_visual_side { gap: 8px; }
+  .about_visual {
+    min-height: 0;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .about_visual_main {
+    flex: none;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1.45;
+  }
+  .about_visual_side {
+    flex: none;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    gap: 8px;
+  }
+  .about_visual_side img {
+    height: auto;
+    aspect-ratio: 1.2;
+  }
   .about_lead { font-size: 1.9rem; }
   .contact_form_grid { grid-template-columns: 1fr; gap: 16px; }
   .contact_field_full { grid-column: auto; }
