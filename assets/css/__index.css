@@ -112,7 +112,7 @@
 .hero_visual {
   position: absolute;
   top: 50%;
-  right: -150px;
+  right: -80px;
   z-index: 1;
   width: min(60vw, 680px);
   display: flex;
