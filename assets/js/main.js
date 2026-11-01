@@ -62,7 +62,7 @@ if (topWorksList) {
   (async () => {
     try {
       const res   = await fetch('assets/js/img_file_names.json', { cache: 'no-cache' });
-      const works = await res.json();
+      const works = (await res.json()).filter(work => work.published !== false);
       works.sort((a, b) => b.date - a.date);
       works.slice(0, 12).forEach(work => {
         const li = document.createElement('li');

@@ -45,7 +45,7 @@ function navBtnClick(btn) {
 (async () => {
   try {
     const res  = await fetch('assets/js/img_file_names.json', { cache: 'no-cache' });
-    works_lists = await res.json();
+    works_lists = (await res.json()).filter(work => work.published !== false);
     works_lists.sort((a, b) => b.date - a.date);
     createImgWorks(works_lists);
   } catch (e) {
